@@ -1,136 +1,124 @@
-<!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Kairos</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kairós: Weather Risk Assessment</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kairós: Weather Risk Assessment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="p-4 md:p-8 min-h-screen flex items-center justify-center">
-  <div class="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="card space-y-6">
-      <h1 class="text-6xl font-extrabold text-red-400 mb-1 leading-none text-center">Kairós</h1>
-      <p class="text-xl font-bold text-gray-300 mb-4 leading-tight text-center">
-        Weather Risk Assessment
-      </p>
+<body class="p-4 md:p-8 min-h-screen flex items-center justify-center bg-black relative">
+  <div class="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+    <div class="card space-y-6">
+      <h1 class="text-6xl font-extrabold text-red-400 mb-1 leading-none text-center">Kairós</h1>
+      <p class="text-xl font-bold text-gray-300 mb-4 leading-tight text-center">
+        Weather Risk Assessment
+      </p>
 
-      <p class="text-gray-300 mb-6 border-b border-red-900/50 pb-6">
-        Kairós is a smart weather assistant that merges precision forecasting with intuitive design. Simply input your <b>location</b> and <b>date</b>, and Kairós analyzes real-time atmospheric datasets and predictive climate models to deliver an in-depth breakdown of conditions — including temperature intensity, wind dynamics, and other key environmental indicators. Whether you're planning a hike, a trip, or an experiment, Kairós transforms raw meteorological data into clear, actionable insights -empowering you to make decisions backed by science.
-      </p>
+      <p class="text-gray-300 mb-6 border-b border-red-900/50 pb-6">
+        Kairós is a smart weather assistant that merges precision forecasting with intuitive design. Simply input your <b>location</b> and <b>date</b>, and Kairós analyzes real-time atmospheric datasets and predictive climate models to deliver an in-depth breakdown of conditions — including temperature intensity, wind dynamics, and other key environmental indicators. Whether you're planning a hike, a trip, or an experiment, Kairós transforms raw meteorological data into clear, actionable insights -empowering you to make decisions backed by science.
+      </p>
 
-            <div class="space-y-4">
-        <div>
-          <label for="location" class="block text-sm font-medium text-gray-400 mb-1">
-Location (City, Park, etc.)
-          </label>
-          <input
-            type="text"
-            id="location"
-            placeholder="e.g., Neo-Tokyo or Blade Runner City"
-            value="New York City"
-            required
-          />
-        </div>
+      <div class="space-y-4">
+        <div>
+          <label for="location" class="block text-sm font-medium text-gray-400 mb-1">
+            Location (City, Park, etc.)
+          </label>
+          <input
+            type="text"
+            id="location"
+            placeholder="e.g., Neo-Tokyo or Blade Runner City"
+            value="New York City"
+            required
+            class="w-full p-2 bg-gray-800 text-gray-200 rounded-md"
+          />
+        </div>
 
-        <div>
-          <label for="date" class="block text-sm font-medium text-gray-400 mb-1">Event Date</label>
-          <input type="date" id="date" required />
-        </div>
-      </div>
+        <div>
+          <label for="date" class="block text-sm font-medium text-gray-400 mb-1">Event Date</label>
+          <input type="date" id="date" required class="w-full p-2 bg-gray-800 text-gray-200 rounded-md" />
+        </div>
+      </div>
 
-      <div class="w-full h-px bg-red-800/50 my-4"></div>
+      <div class="w-full h-px bg-red-800/50 my-4"></div>
 
-      <button
-        id="query-button"
-        onclick="handleQuery()"
-        class="w-full py-3 px-4 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-500 transition duration-300 shadow-xl shadow-red-700/50 active:bg-red-700"
-      >
-        // LETS CHECK
-      </button>
-    </div>
+      <button
+        id="query-button"
+        onclick="handleQuery()"
+        class="w-full py-3 px-4 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-500 transition duration-300 shadow-xl shadow-red-700/50 active:bg-red-700"
+      >
+        // LETS CHECK
+      </button>
+    </div>
 
-        <div id="results-card" class="card space-y-4" style="display: none;">
-      <h2 class="text-2xl font-bold border-b-2 border-red-700 pb-2 mb-4 uppercase tracking-widest">
-        <span id="location-display" class="text-red-400">// DATA LOG: ASSESSMENT</span>
-      </h2>
-      <div id="results-display" class="space-y-3">
-        <p class="text-gray-400">Results will appear here after a query is run.</p>
-      </div>
-    </div>
+    <div id="results-card" class="card space-y-4" style="display: none;">
+      <h2 class="text-2xl font-bold border-b-2 border-red-700 pb-2 mb-4 uppercase tracking-widest">
+        <span id="location-display" class="text-red-400">// DATA LOG: ASSESSMENT</span>
+      </h2>
+      <div id="results-display" class="space-y-3">
+        <p class="text-gray-400">Results will appear here after a query is run.</p>
+      </div>
+    </div>
 
-        <div
-      id="placeholder-card"
-      class="card flex flex-col items-center justify-center text-center p-10 bg-zinc-900/50 text-gray-400"
-    >
-      <svg
-        class="w-12 h-12 text-red-500 mb-4"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-        ></path>
-      </svg>
-      <p class="font-medium text-gray-200 text-xl">// Awaiting event details...</p>
-      <p class="text-sm">
-        Click "LETS CHECK" to analyze the optimal <b>Kairós</b> moment.
-      </p>
-    </div>
-  </div>
+    <div
+      id="placeholder-card"
+      class="card flex flex-col items-center justify-center text-center p-10 bg-zinc-900/50 text-gray-400"
+    >
+      <svg
+        class="w-12 h-12 text-red-500 mb-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        ></path>
+      </svg>
+      <p class="font-medium text-gray-200 text-xl">// Awaiting event details...</p>
+      <p class="text-sm">
+        Click "LETS CHECK" to analyze the optimal <b>Kairós</b> moment.
+      </p>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
+  <!-- ASCII Art -->
+  <pre class="ascii-top-right absolute top-0 right-0 text-gray-500 text-xs z-0">
+⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠴⣾⣯⣅⣀⠀⠀⠀⠈⢻⣦⡀⠒⠻⠿⣿⡿⠿⠓⠂⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠉⢻⡇⣤⣾⣿⣷⣿⣿⣤⠀⠀⣿⠁⠀⠀⠀⢀⣴⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠸⣿⡿⠏⠀⢀⠀⠀⠿⣶⣤⣤⣤⣄⣀⣴⣿⡿⢻⣿⡆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠟⠁⠀⢀⣼⠀⠀⠀⠹⣿⣟⠿⠿⠿⡿⠋⠀⠘⣿⣇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢳⣶⣶⣿⣿⣇⣀⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀⠀⠛⠿⣿⣦⣤⣀⠀⠀
+⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⠿⠋⠁⠀⣹⣿⠳⠀⠀⠀⠀⠀⠀⢀⣠⣽⣿⡿⠟⠃
+⠀⠀⠀⠀⠀⢰⠿⠛⠻⢿⡇⠀⠀⠀⣰⣿⠏⠀⠀⢀⠀⠀⠀⣾⣿⠟⠋⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⣰⣿⣿⣾⣿⠿⢿⣷⣀⢀⣿⡇⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀
+  </pre>
+  <pre class="ascii-bottom-left absolute bottom-0 left-0 text-gray-500 text-xs z-0">
+⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠴⣾⣯⣅⣀⠀⠀⠀⠈⢻⣦⡀⠒⠻⠿⣿⡿⠿⠓⠂⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠉⢻⡇⣤⣾⣿⣷⣿⣿⣤⠀⠀⣿⠁⠀⠀⠀⢀⣴⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠸⣿⡿⠏⠀⢀⠀⠀⠿⣶⣤⣤⣤⣄⣀⣴⣿⡿⢻⣿⡆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠟⠁⠀⢀⣼⠀⠀⠀⠹⣿⣟⠿⠿⠿⡿⠋⠀⠘⣿⣇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢳⣶⣶⣿⣿⣇⣀⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀⠀⠛⠿⣿⣦⣤⣀⠀⠀
+⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⠿⠋⠁⠀⣹⣿⠳⠀⠀⠀⠀⠀⠀⢀⣠⣽⣿⡿⠟⠃
+⠀⠀⠀⠀⠀⢰⠿⠛⠻⢿⡇⠀⠀⠀⣰⣿⠏⠀⠀⢀⠀⠀⠀⣾⣿⠟⠋⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⣰⣿⣿⣾⣿⠿⢿⣷⣀⢀⣿⡇⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀
+  </pre>
+
+  <script src="script.js"></script>
 </body>
-</html>
-<pre class="ascii-top-right">
-⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠴⣾⣯⣅⣀⠀⠀⠀⠈⢻⣦⡀⠒⠻⠿⣿⡿⠿⠓⠂⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠉⢻⡇⣤⣾⣿⣷⣿⣿⣤⠀⠀⣿⠁⠀⠀⠀⢀⣴⣿⣿⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠸⣿⡿⠏⠀⢀⠀⠀⠿⣶⣤⣤⣤⣄⣀⣴⣿⡿⢻⣿⡆⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠟⠁⠀⢀⣼⠀⠀⠀⠹⣿⣟⠿⠿⠿⡿⠋⠀⠘⣿⣇⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢳⣶⣶⣿⣿⣇⣀⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀⠀⠛⠿⣿⣦⣤⣀⠀⠀
-⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⠿⠋⠁⠀⣹⣿⠳⠀⠀⠀⠀⠀⠀⢀⣠⣽⣿⡿⠟⠃
-⠀⠀⠀⠀⠀⢰⠿⠛⠻⢿⡇⠀⠀⠀⣰⣿⠏⠀⠀⢀⠀⠀⠀⣾⣿⠟⠋⠁⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⣰⣿⣿⣾⣿⠿⢿⣷⣀⢀⣿⡇⠁⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀
-<pre class="ascii-bottom-left">
-⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠴⣾⣯⣅⣀⠀⠀⠀⠈⢻⣦⡀⠒⠻⠿⣿⡿⠿⠓⠂⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠉⢻⡇⣤⣾⣿⣷⣿⣿⣤⠀⠀⣿⠁⠀⠀⠀⢀⣴⣿⣿⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠸⣿⡿⠏⠀⢀⠀⠀⠿⣶⣤⣤⣤⣄⣀⣴⣿⡿⢻⣿⡆⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠟⠁⠀⢀⣼⠀⠀⠀⠹⣿⣟⠿⠿⠿⡿⠋⠀⠘⣿⣇⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢳⣶⣶⣿⣿⣇⣀⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀⠀⠛⠿⣿⣦⣤⣀⠀⠀
-⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⠿⠋⠁⠀⣹⣿⠳⠀⠀⠀⠀⠀⠀⢀⣠⣽⣿⡿⠟⠃
-⠀⠀⠀⠀⠀⢰⠿⠛⠻⢿⡇⠀⠀⠀⣰⣿⠏⠀⠀⢀⠀⠀⠀⣾⣿⠟⠋⠁⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⣰⣿⣿⣾⣿⠿⢿⣷⣀⢀⣿⡇⠁⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀
-</pre>
-    <script  src="./script.js"></script>
-
-  </body>
-  
 </html>
